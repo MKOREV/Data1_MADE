@@ -5,49 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to the Fun Games Website</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f8ff;
-      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #2e3b55;
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
       text-align: center;
     }
     h1 {
-      color: #4CAF50;
+      font-size: 3em;
+      color: #ffdd57;
+      margin-bottom: 20px;
     }
     p {
-      font-size: 1.2em;
+      font-size: 1.5em;
+      margin-bottom: 40px;
+      color: #ffffffb3;
     }
     .game-buttons {
       margin-top: 20px;
     }
     button {
-      padding: 15px 30px;
+      padding: 15px 40px;
       margin: 10px;
-      background-color: #4CAF50;
+      background-color: #ff6f61;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       cursor: pointer;
       font-size: 1.2em;
+      transition: all 0.3s ease;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #e65e52;
+      transform: scale(1.05);
+    }
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9em;
+      color: #ffffff80;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to the Fun Games Website!</h1>
-  <p>Feel free to play some games below and enjoy your time!</p>
+  <h1>Welcome to Fun Games!</h1>
+  <p>Get ready to play and have fun. Choose a game below!</p>
 
   <div class="game-buttons">
     <button onclick="window.location.href='pong.html'">Play Pong Game</button>
     <button onclick="window.location.href='catch_star.html'">Play Catch the Falling Star</button>
+  </div>
+
+  <div class="footer">
+    <p>Enjoy your time on our fun gaming site!</p>
   </div>
 </body>
 </html>
