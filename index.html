@@ -3,69 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to the Fun Games Website</title>
+  <title>Welcome to Fun and Games!</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #2e3b55;
-      color: #f1f1f1;
+      background-color: #f0f0f0;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
       text-align: center;
     }
     h1 {
+      margin: 0;
       font-size: 3em;
-      color: #ffdd57;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    .section {
+      margin: 40px 0;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .section h2 {
+      text-align: center;
+      font-size: 2.5em;
       margin-bottom: 20px;
     }
-    p {
-      font-size: 1.5em;
-      margin-bottom: 40px;
-      color: #ffffffb3;
+    .games-grid, .trivia-content {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-    .game-buttons {
-      margin-top: 20px;
-    }
-    button {
-      padding: 15px 40px;
-      margin: 10px;
+    .game-button, .trivia-button {
+      padding: 20px;
+      border-radius: 10px;
       background-color: #ff6f61;
       color: white;
       border: none;
-      border-radius: 50px;
-      cursor: pointer;
       font-size: 1.2em;
-      transition: all 0.3s ease;
+      cursor: pointer;
+      transition: transform 0.3s;
     }
-    button:hover {
-      background-color: #e65e52;
+    .game-button:hover, .trivia-button:hover {
       transform: scale(1.05);
+      background-color: #ff5c4f;
     }
-    .footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.9em;
-      color: #ffffff80;
+    .trivia-quiz-container {
+      display: none;
+      text-align: center;
+    }
+    footer {
+      background-color: #4CAF50;
+      padding: 20px;
+      text-align: center;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Fun Games!</h1>
-  <p>Get ready to play and have fun. Choose a game below!</p>
+  <header>
+    <h1>Welcome to Fun and Games!</h1>
+  </header>
 
-  <div class="game-buttons">
-    <button onclick="window.location.href='pong.html'">Play Pong Game</button>
-    <button onclick="window.location.href='catch_star.html'">Play Catch the Falling Star</button>
+  <div class="container">
+    <!-- Mini Games Section -->
+    <div class="section">
+      <h2>Mini Browser Games</h2>
+      <div class="games-grid">
+        <button class="game-button" onclick="window.location.href='pong.html'">Play Pong Game</button>
+        <button class="game-button" onclick="window.location.href='catch_star.html'">Play Catch the Star</button>
+      </div>
+    </div>
+
+    <!-- Trivia Quiz Section -->
+    <div class="section">
+      <h2>Trivia Quiz Challenge</h2>
+      <div class="trivia-content">
+        <button class="trivia-button" onclick="startTriviaGame()">Start Trivia Quiz</button>
+      </div>
+      <div class="trivia-quiz-container" id="trivia-quiz-container">
+        <h3 id="question"></h3>
+        <div id="choices"></div>
+        <p id="feedback"></p>
+        <p>Score: <span id="score">0</span></p>
+        <button class="trivia-button" onclick="nextQuestion()">Next Question</button>
+      </div>
+    </div>
   </div>
 
-  <div class="footer">
-    <p>Enjoy your time on our fun gaming site!</p>
-  </div>
+  <footer>
+    <p>Enjoy your time on our fun website filled with games and trivia!</p>
+  </footer>
+
 </body>
 </html>
