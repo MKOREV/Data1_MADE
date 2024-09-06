@@ -1,15 +1,10 @@
 body {
-  display: flex;
-  flex-direction: column; /* Allows footer to stay at the bottom of the screen */
-  height: 100vh; /* Full viewport height */
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f3e1;
+  color: #333;
   margin: 0;
-}
-
-.container {
-  flex: 1; /* Allow container to grow */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Space out sections and footer */
+  padding: 0;
+  text-align: center;
 }
 
 header {
@@ -68,8 +63,8 @@ footer {
   color: white;
   padding: 10px;
   font-size: 1.2em;
-  position: relative; /* Set to relative or remove this line */
+  position: absolute;
+  bottom: 0;
   width: 100%;
   text-shadow: 1px 1px 0 #c62839;
-  margin-top: auto; /* Keeps footer at the bottom */
 }
