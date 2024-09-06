@@ -12,11 +12,14 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #282c34;
+      background-color: #000;
+      background-image: url('https://www.publicdomainpictures.net/pictures/300000/nahled/starry-sky-background.jpg'); /* Starry night background */
+      background-size: cover;
+      background-position: center;
     }
     canvas {
-      background: #000;
       display: block;
+      background: transparent; /* Background will show the starry sky */
     }
     .back-button {
       margin-bottom: 20px;
@@ -38,26 +41,30 @@
     const canvas = document.getElementById('catchGame');
     const context = canvas.getContext('2d');
 
+    // Load the basket image
+    const basketImg = new Image();
+    basketImg.src = 'https://cdn.pixabay.com/photo/2014/04/03/11/57/basket-309053_960_720.png'; // You can replace this with a different image
+
+    // Load the star image
+    const starImg = new Image();
+    starImg.src = 'https://www.clipartmax.com/png/full/106-1064607_shooting-star-png-free-download-shooting-star.png'; // You can replace this with a different image
+
     // Basket and star settings
-    const basket = { x: canvas.width / 2 - 50, y: canvas.height - 30, width: 100, height: 20, color: '#fff', speed: 15 };
-    const star = { x: Math.random() * canvas.width, y: 0, radius: 10, speed: 3, color: '#ffdd00' };
+    const basket = { x: canvas.width / 2 - 50, y: canvas.height - 50, width: 100, height: 50, speed: 15 };
+    const star = { x: Math.random() * canvas.width, y: 0, width: 40, height: 40, speed: 3 };
     let score = 0;
 
-    // Draw the basket
+    // Draw the basket (as an image)
     function drawBasket() {
-      context.fillStyle = basket.color;
-      context.fillRect(basket.x, basket.y, basket.width, basket.height);
+      context.drawImage(basketImg, basket.x, basket.y, basket.width, basket.height);
     }
 
-    // Draw the falling star
+    // Draw the falling star (as an image)
     function drawStar() {
-      context.fillStyle = star.color;
-      context.beginPath();
-      context.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      context.fill();
+      context.drawImage(starImg, star.x, star.y, star.width, star.height);
     }
 
-    // Move the basket with left and right keys
+    // Move the basket with left and right arrow keys
     document.addEventListener('keydown', function(event) {
       if (event.key === 'ArrowLeft' && basket.x > 0) {
         basket.x -= basket.speed;
@@ -66,16 +73,27 @@
       }
     });
 
-    // Update star and check if it's caught
+    // Move the basket with mouse movement
+    canvas.addEventListener('mousemove', function(event) {
+      let rect = canvas.getBoundingClientRect();
+      let mouseX = event.clientX - rect.left;
+      basket.x = mouseX - basket.width / 2; // Center the basket at the mouse's x-coordinate
+    });
+
+    // Update the star position and check if it's caught
     function update() {
       star.y += star.speed;
 
-      // If the star hits the basket, reset the star and increase score
-      if (star.y + star.radius > basket.y && star.x > basket.x && star.x < basket.x + basket.width) {
+      // If the star hits the basket, reset the star and increase the score
+      if (
+        star.y + star.height > basket.y &&
+        star.x + star.width > basket.x &&
+        star.x < basket.x + basket.width
+      ) {
         star.y = 0;
         star.x = Math.random() * canvas.width;
         score++;
-        star.speed += 0.2;  // Increase difficulty
+        star.speed += 0.2;  // Increase difficulty by speeding up the star
       }
 
       // If the star goes out of bounds, reset the star
@@ -85,7 +103,7 @@
       }
     }
 
-    // Render the game
+    // Render the game visuals
     function render() {
       context.clearRect(0, 0, canvas.width, canvas.height);  // Clear the canvas
       drawBasket();
@@ -95,13 +113,14 @@
       context.fillText("Score: " + score, 20, 30);
     }
 
-    // Game loop
+    // Main game loop
     function gameLoop() {
       update();
       render();
     }
 
-    setInterval(gameLoop, 1000 / 60);  // 60 frames per second
+    // Start the game loop (60 FPS)
+    setInterval(gameLoop, 1000 / 60);
   </script>
 </body>
 </html>
