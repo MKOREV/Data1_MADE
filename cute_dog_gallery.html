@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <title>Cute Dog Gallery</title>
   <style>
     body {
@@ -21,22 +21,39 @@
       margin: 0;
       font-size: 2.5em;
     }
-    .gallery-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-      overflow-y: auto;
-      max-height: 80vh;
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
     }
-    .gallery-item {
-      width: 300px;
-      height: 200px;
-      background-size: cover;
-      background-position: center;
+    .slideshow-image {
+      display: none;
+      width: 100%;
+      max-height: 80vh;
+      object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
     }
     footer {
       background-color: #4CAF50;
@@ -64,24 +81,75 @@
     <h1>Cute Dog Gallery</h1>
   </header>
 
-  <div class="gallery-container">
-    <!-- Increased number of dog photos for better scrolling experience -->
-    <img src="https://placedog.net/500/300" alt="Cute Dog" class="gallery-item"/>
-    <img src="https://placedog.net/501/301" alt="Cute Dog" class="gallery-item"/>
-    <img src="https://placedog.net/502/302" alt="Cute Dog" class="gallery-item"/>
-    <img src="https://placedog.net/503/303" alt="Cute Dog" class="gallery-item"/>
-    <img src="https://placedog.net/504/304" alt="Cute Dog" class="gallery-item"/>
-    <img src="https://placedog.net/505/305" alt="Cute Dog" class="gallery-item"/>
-    <img src="https://placedog.net/506/306" alt="Cute Dog" class="gallery-item"/>
-    <img src="https://placedog.net/507/307" alt="Cute Dog" class="gallery-item"/>
-    <img src="https://placedog.net/508/308" alt="Cute Dog" class="gallery-item"/>
-    <img src="https://placedog.net/509/309" alt="Cute Dog" class="gallery-item"/>
+  <div class="slideshow-container">
+    <!-- Create placeholders for 30 dog images -->
+    <img src="https://placedog.net/500/300" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/501/301" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/502/302" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/503/303" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/504/304" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/505/305" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/506/306" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/507/307" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/508/308" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/509/309" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/510/310" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/511/311" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/512/312" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/513/313" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/514/314" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/515/315" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/516/316" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/517/317" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/518/318" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/519/319" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/520/320" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/521/321" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/522/322" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/523/323" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/524/324" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/525/325" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/526/326" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/527/327" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/528/328" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/529/329" alt="Cute Dog" class="slideshow-image" />
+    <img src="https://placedog.net/530/330" alt="Cute Dog" class="slideshow-image" />
   </div>
+
+  <span class="prev" onclick="plusSlides(-1)">&#10094;</span>
+  <span class="next" onclick="plusSlides(1)">&#10095;</span>
 
   <button onclick="window.location.href='index.html'">Back to Home</button>
 
   <footer>
     <p>Enjoy these adorable dog photos!</p>
   </footer>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      const images = document.getElementsByClassName("slideshow-image");
+      for (let i = 0; i < images.length; i++) {
+        images[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > images.length) { slideIndex = 1 }    
+      images[slideIndex - 1].style.display = "block";  
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    function plusSlides(n) {
+      const images = document.getElementsByClassName("slideshow-image");
+      slideIndex += n;
+      if (slideIndex > images.length) { slideIndex = 1 }
+      if (slideIndex < 1) { slideIndex = images.length }
+      for (let i = 0; i < images.length; i++) {
+        images[i].style.display = "none";  
+      }
+      images[slideIndex - 1].style.display = "block";  
+    }
+  </script>
 </body>
 </html>
