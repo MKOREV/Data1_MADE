@@ -40,13 +40,13 @@
       font-size: 2.5em;
       margin-bottom: 20px;
     }
-    .games-grid, .trivia-content {
+    .games-grid, .trivia-content, .generators-content {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 20px;
     }
-    .game-button, .trivia-button {
+    .game-button, .trivia-button, .generator-button {
       padding: 20px;
       border-radius: 10px;
       background-color: #ff6f61;
@@ -56,7 +56,7 @@
       cursor: pointer;
       transition: transform 0.3s;
     }
-    .game-button:hover, .trivia-button:hover {
+    .game-button:hover, .trivia-button:hover, .generator-button:hover {
       transform: scale(1.05);
       background-color: #ff5c4f;
     }
@@ -90,10 +90,19 @@
         <button class="trivia-button" onclick="window.location.href='trivia.html'">Start Trivia Quiz</button>
       </div>
     </div>
+
+    <!-- Generators Section -->
+    <div class="section">
+      <h2>Daily Quote & Fun Facts</h2>
+      <div class="generators-content">
+        <button class="generator-button" onclick="window.location.href='daily_quote.html'">Daily Quote Generator</button>
+        <button class="generator-button" onclick="window.location.href='fun_facts.html'">Random Fun Facts Generator</button>
+      </div>
+    </div>
   </div>
 
   <footer>
-    <p>Enjoy your time on our fun website filled with games and trivia!</p>
+    <p>Enjoy your time on our fun website filled with games, trivia, and daily inspiration!</p>
   </footer>
 </body>
 </html>
