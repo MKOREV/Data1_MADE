@@ -1,2 +1,2 @@
-# Data1_MADE
-Made course Data 1 
+# Course Data1 Msc MADE
+Welcome to this website!
