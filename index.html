@@ -1,1 +1,53 @@
-<a href="game_pong.html">Play Pong Game</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to the Fun Games Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      color: #4CAF50;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    .game-buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the Fun Games Website!</h1>
+  <p>Feel free to play some games below and enjoy your time!</p>
+
+  <div class="game-buttons">
+    <button onclick="window.location.href='pong.html'">Play Pong Game</button>
+    <button onclick="window.location.href='catch_star.html'">Play Catch the Falling Star</button>
+  </div>
+</body>
+</html>
