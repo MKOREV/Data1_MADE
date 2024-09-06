@@ -1,28 +1,39 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Single Player Pong</title>
+  <title>Pong Game</title>
   <style>
     body {
       margin: 0;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       background-color: #282c34;
-      color: #61dafb;
-      font-family: Arial, sans-serif;
     }
     canvas {
       background: #000;
       display: block;
     }
+    .back-button {
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
   </style>
 </head>
 <body>
+  <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
   <canvas id="pong" width="600" height="400"></canvas>
+
   <script>
     const canvas = document.getElementById('pong');
     const context = canvas.getContext('2d');
