@@ -1,8 +1,0 @@
-title: "My Fun Website"
-description: "Explore interactive games, quizzes, and more!"
-theme: "minimal"  # You can use any theme you like; "minimal" is just an example
-markdown: kramdown
-highlighter: rouge
-exclude:
-  - README.md
-  - LICENSE
